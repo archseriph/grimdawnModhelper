@@ -1,0 +1,24 @@
+[submodule "third_party/gdms"]
+	path = third_party/gdms
+	url = https://github.com/ssauvageau-/gdms
+	branch = main
+
+[submodule "third_party/Grim-Dawn-Modding-Tool"]
+	path = third_party/Grim-Dawn-Modding-Tool
+	url = https://github.com/RobertSkalko/Grim-Dawn-Modding-Tool
+	branch = master
+
+[submodule "third_party/yagde"]
+	path = third_party/yagde
+	url = https://github.com/wr8fdy/yagde
+	branch = main
+
+[submodule "third_party/grim-save-parser"]
+	path = third_party/grim-save-parser
+	url = https://github.com/nbak/grim-save-parser
+	branch = main
+
+[submodule "third_party/GDParser"]
+	path = third_party/GDParser
+	url = https://github.com/ChrisElison/GDParser
+	branch = main
