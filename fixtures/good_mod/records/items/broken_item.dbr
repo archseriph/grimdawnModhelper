@@ -1,0 +1,4 @@
+name = "Broken Item"
+id = "broken_item"
+; Reference to a missing record (intentionally missing to trigger MISSING_REFERENCE)
+spawn_on_use = "records/items/missing_item.dbr"
