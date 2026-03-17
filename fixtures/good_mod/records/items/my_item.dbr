@@ -1,0 +1,4 @@
+name = "My Item"
+id = "my_item"
+; Reference to an existing record in the same mod
+spawn_on_use = "records/items/other_item.dbr"
