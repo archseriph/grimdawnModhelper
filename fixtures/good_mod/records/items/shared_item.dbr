@@ -1,0 +1,4 @@
+name = "Shared Item"
+id = "shared_item"
+; This file intentionally uses the same relative path/identifier as the file in dup_mod_B
+; to trigger DUPLICATE_ID across mods.
