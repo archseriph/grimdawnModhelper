@@ -66,9 +66,33 @@ Limitations & next steps
 - Add unit tests and sample fixture mods for CI.
 - Add an API or UI (Electron/Tauri/C#/.NET/PySide) that reads from this DB and provides the secondary Checker window you described.
 
-If you want, I can:
-- Create small sample fixtures demonstrating missing references and duplicates.
-- Add unit tests and a simple report export (JSON/HTML).
-- Open a PR on branch `feature/scanner-checker` with these files and fixtures.
+- # Scanner Fixtures
 
-Please tell me if you want me to also create the PR for that branch, include sample fixtures, or make any changes to file placement.
+This directory contains small sample mod folders for testing the scanner and checker.
+
+Fixtures:
+- good_mod
+  - records/items/other_item.dbr  (target)
+  - records/items/my_item.dbr     (references other_item.dbr — should resolve)
+- missing_ref_mod
+  - records/items/broken_item.dbr (references records/items/missing_item.dbr — missing)
+- dup_mod_A
+  - records/items/shared_item.dbr (same relative path used in dup_mod_B)
+- dup_mod_B
+  - records/items/shared_item.dbr (same relative path used in dup_mod_A — duplicate across mods)
+
+How to run:
+1. From your repo root, run (example):
+   python scan.py --mod-root fixtures/good_mod --db ./db/modhelper.db
+   python scan.py --mod-root fixtures/missing_ref_mod --db ./db/modhelper.db
+   python scan.py --mod-root fixtures/dup_mod_A --db ./db/modhelper.db
+   python scan.py --mod-root fixtures/dup_mod_B --db ./db/modhelper.db
+
+2. Inspect the DB (sqlite3 ./db/modhelper.db) and query the issues table:
+   SELECT * FROM issues ORDER BY created_at DESC;
+
+Notes:
+- The scanner is heuristic-based; these fixtures are minimal, text-based examples to exercise:
+  - MISSING_REFERENCE (missing_ref_mod)
+  - DUPLICATE_ID (dup_mod_A + dup_mod_B)
+  - successful reference resolution (good_mod)
