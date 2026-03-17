@@ -1,0 +1,3 @@
+name = "Shared Item (variant)"
+id = "shared_item"
+; Duplicate of dup_mod_A/records/items/shared_item.dbr (same relative path -> same asset_identifier)
